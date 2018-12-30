@@ -11,6 +11,7 @@ CREATE TABLE recipes (
   recipeName VARCHAR(225),
   userId INTEGER,
   recipeDescription TEXT,
+  made INTEGER,
   PRIMARY KEY (recipeId)
 );
 
@@ -46,6 +47,7 @@ CREATE TABLE reviews (
   recipeId INTEGER,
   rating INTEGER,
   submitDate VARCHAR(50),
+  numericDate INTEGER,
   likes INTEGER,
   reviewText TEXT,
   PRIMARY KEY (reviewId)

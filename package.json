@@ -8,16 +8,18 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-      "react-dev": "webpack -d --watch"
-    },
+    "react-dev": "webpack -d --watch"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-path": "^0.3.8",
     "faker": "^4.1.0",
+    "moment": "^2.23.0",
     "mysql": "^2.16.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "semantic-ui-react": "^0.84.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
