@@ -1,0 +1,198 @@
+
+body {
+  font-family: "Source Sans Pro",Arial;
+}
+
+#main {
+  display: flex;
+}
+
+#summaryName {
+  font-size: 1.375rem;
+  line-height: 28px;
+  margin: 24px 0 8px;
+  text-align: center;
+}
+
+#star {
+  padding: 1px;
+}
+
+#summaryStars {
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+#summaryStats {
+  text-align: center;
+  cursor: pointer;
+}
+
+#stats {
+  color: #ff7e1a;
+}
+
+#divider {
+  color: #b3b3b3;
+}
+
+#summaryAvatar {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-bottom: 7px;
+  margin-top: 10px;
+}
+
+#summaryFollowers {
+  display: flex;
+  align-items: center;
+  margin-top: -3px;
+} 
+
+#sumLeft {
+  margin-right: 10px;
+}
+
+#summaryUser {
+  display: flex;
+}
+
+#summaryOwner {
+  margin-top: 10px;
+  margin-bottom: 10px;
+} 
+
+#recipeBy {
+  color: gray;
+  display: inline-block;
+  float: left;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem; 
+}
+
+#sumUser {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+#summaryDescription {
+  width: 350px;
+}  
+
+#sumFollowers {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+#sumFolPic {
+  width: 20px;
+  margin-left: 100px;
+  padding: 100px;
+}
+
+#summaryText {
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+#listText {
+  display: table; 
+  text-align: center;
+  font-size: 16px;
+  font-style: bold;
+  background-color: #b3b3b3;
+  color: white;
+  width: 91.7px;
+  height: 52px;
+}
+
+#listTextchild {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#gallery {
+  cursor: pointer;
+}
+
+#galleryList {
+  display: flex;
+}
+
+#modalHead {
+  display: flex;
+  background-color: rgba(0,0,0,0.6);
+}
+
+#modalTitle {  
+  color: #fff;
+  font-size: 25px;
+  float: left;
+  font-style: normal;
+  font-style: initial;
+  margin-top: 10px;
+}
+
+#modalClose {
+  font-size: 40px;
+  font-style: bold;
+  color: white;
+  margin-left: 480px;
+  margin-top: 0px;
+}
+
+#modalImage {
+  padding: 2px;
+}
+
+#modalTitle {
+  display: flex;
+  justify-content: flex-end
+}
+
+#modalAvatar {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+#modalUser {
+  color: black;
+  margin-top: 15px;
+  font-size: 15px;
+  width: 100px;
+}
+
+#modalFollow {
+  margin-right: 0px;
+  margin-left: 480px;
+}
+
+#modalGallery {
+  height: 400px;
+  width: 100%;
+}
+
+#modalCommentTitle {
+  font-size: 18px;
+  margin: 10px 0px 5px 10px;
+}
+
+#modalComment {
+  font-size: 15px;
+  font-style: italic;
+  margin: 5px 0px 5px 10px;
+}
+
+#modalNav {
+  text-align: center;
+}
+
+#modalPrev, #modalNext {
+  border-radius: 15px;
+  padding: 10px;
+}

@@ -11,8 +11,48 @@ class App extends React.Component {
       photos : [],
       reviews : [],
       summary : {},
-      showModal: false
+      showModal: false,
+      following: false
     }
+  }
+
+  changeIndex(e) {
+    var index = Number(e.target.alt)
+    if (!index) {
+      index = 0;
+    }
+    this.setState({ 
+      index: index
+    });
+  }
+
+  openModal(e) {
+    var index = Number(e.target.alt)
+    if (!index) {
+      index = 0;
+    }
+    this.setState({ 
+      showModal: true,
+      index: index
+    });
+  }
+
+  closeModal(e) {
+    this.setState({
+      showModal: false
+    });
+  }
+
+  follow() {
+    this.setState({
+      following: true
+    });
+  }
+
+  unfollow() {
+    this.setState({
+      following: false
+    });
   }
 
   next() {
@@ -85,10 +125,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Summary reviews={this.state.reviews} summary={this.state.summary}/>
+      <div id='main'>
+        <Summary reviews={this.state.reviews} summary={this.state.summary} changeIndex={this.changeIndex.bind(this)}
+          openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} showModal={this.state.showModal}
+          following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)}/>
+
         <PhotoGallery index={this.state.index} photos={this.state.photos} upload={this.upload.bind(this)}
-          next={this.next.bind(this)} previous={this.previous.bind(this)} />
+          openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} showModal={this.state.showModal}
+          next={this.next.bind(this)} previous={this.previous.bind(this)} changeIndex={this.changeIndex.bind(this)}
+          following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)}/>
+
+        {this.state.showModal ? (
+          <GalleryModal onClose={this.closeModal.bind(this)} photos={this.props.photos} index={this.props.index} 
+            upload={this.props.upload} next={this.props.next} previous={this.props.previous} changeIndex={this.changeIndex.bind(this)}
+            following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)} >
+           
+          </GalleryModal>
+          ) : null}
       </div>
     );
   }
