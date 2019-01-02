@@ -3,7 +3,6 @@ import UploadModal from './UploadModal.jsx';
 
 
 const PhotoGalleryList = ({photos, upload, openModal, openUpload, closeUpload, showUpload}) => {
-  console.log(upload, 'from list')
   if (photos.length) {
     return (
       <div id='galleryList'>
@@ -14,7 +13,7 @@ const PhotoGalleryList = ({photos, upload, openModal, openUpload, closeUpload, s
         <div><img src={photos[3].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
         <div><img src={photos[4].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div> 
         <div id='listTextchildBox'></div> 
-        <div id='listTextchild'>+{photos.length}</div> 
+        <div id='listTextchild' onClick={e => openModal(e)}>+{photos.length}</div> 
         <img id='listUpload' src='./upload.png' height="51.7" width="91.7" onClick={e => openUpload(e)}/>
 
         {showUpload ? (
