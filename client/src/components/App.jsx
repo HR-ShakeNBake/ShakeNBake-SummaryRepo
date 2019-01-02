@@ -2,6 +2,7 @@ import React from 'react';
 import PhotoGallery from './PhotoGallery.jsx';
 import Summary from './Summary.jsx';
 import GalleryModal from './GalleryModal.jsx';
+import UploadModal from './UploadModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +13,21 @@ class App extends React.Component {
       reviews : [],
       summary : {},
       showModal: false,
-      following: false
+      following: false,
+      uploadModal: false
     }
+  }
+
+  openUploadModal() {
+    this.setState({ 
+      uploadModal: true,
+    });
+  }
+
+  closeUploadModal() {
+    this.setState({ 
+      uploadModal: false,
+    });
   }
 
   changeIndex(e) {
@@ -103,13 +117,16 @@ class App extends React.Component {
   }
 
   upload() {
-    var url = prompt("Please enter the image URL");
-    var comment = prompt("Say Somthing about this photo")
+    // console.log(document.getElementById("photoURL").value)
+    // // console.log(document.getElementById("photoComment"))
+    var url = document.getElementById("photoURL").value;
+    var comment = document.getElementById("photoComment").value;
     var photo = {};
     photo.photoURL = url;
     photo.comment = comment;
     photo.recipeId = 1;
     photo.userId = 1;
+    this.closeUploadModal();
     fetch('/recipe', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -133,14 +150,20 @@ class App extends React.Component {
         <PhotoGallery index={this.state.index} photos={this.state.photos} upload={this.upload.bind(this)}
           openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} showModal={this.state.showModal}
           next={this.next.bind(this)} previous={this.previous.bind(this)} changeIndex={this.changeIndex.bind(this)}
-          following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)}/>
+          following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)}
+          openUpload={this.openUploadModal.bind(this)} closeUpload={this.closeUploadModal.bind(this)} showUpload={this.state.uploadModal}/>
 
         {this.state.showModal ? (
           <GalleryModal onClose={this.closeModal.bind(this)} photos={this.props.photos} index={this.props.index} 
             upload={this.props.upload} next={this.props.next} previous={this.props.previous} changeIndex={this.changeIndex.bind(this)}
             following={this.state.following} follow={this.follow.bind(this)} unfollow={this.unfollow.bind(this)} >
-           
           </GalleryModal>
+          ) : null}
+
+        {this.state.uploadModal ? (
+          <UploadModal openUpload={this.openUploadModal.bind(this)} closeUpload={this.closeUploadModal.bind(this)} 
+            showUpload={this.state.uploadModal} upload={this.upload.bind(this)} >  
+          </UploadModal>
           ) : null}
       </div>
     );

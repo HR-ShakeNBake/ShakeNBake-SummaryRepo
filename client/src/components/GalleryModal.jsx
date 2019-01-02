@@ -4,9 +4,12 @@ import ReactDOM from 'react-dom';
 const modalRoot = document.getElementById("modal");
 
 class GalleryModal extends React.Component {
+  constructor(props){
+    super(props)
+
+  }
   
   render() {
-    console.log(this.props.changeIndex)
     if (this.props.photos){
       return ReactDOM.createPortal(
         <div
@@ -17,11 +20,11 @@ class GalleryModal extends React.Component {
             left: "0",
             right: "0",
             display: "grid",
+            zIndex: "990",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "rgba(0,0,0,0.3)"
+            backgroundColor: "rgba(0,0,0,0.3)",
           }}
-          // onClick={this.props.onClose}
         >
           <div
             style={{
@@ -34,7 +37,8 @@ class GalleryModal extends React.Component {
               position: "relative",
               minWidth: "600px",
               boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
-              justifySelf: "center"
+              justifySelf: "center",
+              zIndex: "990"
             }}
           >
             {this.props.children}
@@ -42,10 +46,9 @@ class GalleryModal extends React.Component {
               <div id='modalTitle'>Photos: {this.props.photos[0].recipeName}</div>
               <div id='modalClose' onClick={this.props.onClose}> &times; </div>
             </div>
-            <hr/>
             
             <div>
-              <img id='modalImage' src='./upload.png' height="80" width="80" onClick={e => this.props.upload()}/>
+              <img id='modalImage' src='./upload.png' height="80" width="80" onClick={e => this.props.openUpload()}/>
               <img id='modalImage' src={this.props.photos[0].photoURL} alt='0' onClick={e => this.props.changeIndex(e)} height="80" width="80" />
               <img id='modalImage' src={this.props.photos[1].photoURL} alt='1' onClick={e=>this.props.changeIndex(e)} height="80" width="80" />
               <img id='modalImage' src={this.props.photos[2].photoURL} alt='2' onClick={e=>this.props.changeIndex(e)} height="80" width="80" />
@@ -72,7 +75,7 @@ class GalleryModal extends React.Component {
               </div>
             </div>
 
-            <div>
+            <div >
               <img id='modalGallery' src={this.props.photos[this.props.index].photoURL} />
             </div>
               <div id='modalCommentTitle'>{this.props.photos[this.props.index].recipeName}</div>
@@ -83,7 +86,23 @@ class GalleryModal extends React.Component {
                 ) : null}
               <img id='modalNext' src='./next.png' onClick={e => this.props.next()} height="50" width="120"/>
             </div>
+
+            <div>
+              <div id='prevArrow' onClick={e => this.props.previous()}>&#8249;</div>
+              <div id='nextArrow' onClick={e => this.props.next()}>&#8250;</div>
+            </div>
+
+            <div className='barNav'>
+              <div id='prevArrowBar' onClick={e => this.props.previous()}>&#8249;</div>
+              <div id='nextArrowBar' onClick={e => this.props.next()}>&#8250;</div>
+            </div>
+            
           </div>
+          <div>
+              <img id='modalTitleImage' src={this.props.photos[0].photoURL}/>
+          </div>
+
+
         </div>,
         modalRoot
       );

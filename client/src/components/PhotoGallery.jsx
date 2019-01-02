@@ -14,12 +14,14 @@ class PhotoGallery extends React.Component {
         </div>
       
         <PhotoGalleryList photos={this.props.photos} upload={this.props.upload} 
-          openModal={this.props.openModal} closeModal={this.props.closeModal} showModal={this.props.showModal}/>
+          openModal={this.props.openModal} closeModal={this.props.closeModal} showModal={this.props.showModal}
+          openUpload={this.props.openUpload} closeUpload={this.props.closeUpload} showUpload={this.props.uploadModal}/>
 
         {this.props.showModal ? (
           <GalleryModal onClose={this.props.closeModal} photos={this.props.photos} index={this.props.index} 
             upload={this.props.upload} next={this.props.next} previous={this.props.previous} changeIndex={this.props.changeIndex}
-            following={this.props.following} follow={this.props.follow} unfollow={this.props.unfollow} >
+            following={this.props.following} follow={this.props.follow} unfollow={this.props.unfollow} 
+            openUpload={this.props.openUpload} closeUpload={this.props.closeUpload} showUpload={this.props.uploadModal} >
            
           </GalleryModal>
           ) : null}
