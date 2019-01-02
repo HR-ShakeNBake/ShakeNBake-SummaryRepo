@@ -2,7 +2,7 @@ const faker = require('faker');
 const db = require('../database');
 const moment = require('moment');
 
-//random recipe name generator
+random recipe name generator
 
 const randomInArray = (array) => {
   return array[Math.floor(Math.random()*array.length)];
@@ -102,9 +102,18 @@ for (let i = 1; i <= 100; i++) {
     generateReviews(i);
 }
 
-const generatePhotos = function(num) {
+const pictures = ['https://s.hdnux.com/photos/72/15/17/15350667/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15352415/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15346423/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15347780/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15351888/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15351104/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15346491/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15346499/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15347796/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15346491/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15352160/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15352126/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15351111/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15351873/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15351099/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15351870/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15351258/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15352488/7/premium_landscape.jpg',
+ 'https://s.hdnux.com/photos/72/15/17/15351087/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15347660/7/premium_landscape.jpg', 'https://s.hdnux.com/photos/72/15/17/15346506/7/premium_landscape.jpg',
+];
+
+const generatePhotos = function(num, num1) {
   let recipeId = num;
-  let url = faker.image.image();
+  let url = pictures[num1];
   let comment = '';
   if (Math.floor(Math.random()*10) % 3 === 0){
     comment = faker.lorem.paragraph();
@@ -123,11 +132,11 @@ const generatePhotos = function(num) {
 
 //create random photo for each recipe (between 2-10 photos per recipe)
 for (let i = 1; i <= 1; i++) {
-  for (let j = 0; j < 10; j++ )
-    generatePhotos(i);
+  for (let j = 0; j < pictures.length; j++ )
+    generatePhotos(i, j);
 }
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 2; i <= 100; i++) {
   for (let j = 0; j < Math.floor(Math.random()*8) + 2; j++ )
     generatePhotos(i);
 }

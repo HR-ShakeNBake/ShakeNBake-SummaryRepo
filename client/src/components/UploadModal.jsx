@@ -1,54 +1,70 @@
 import React from 'react';
-import { Button, Icon, Modal } from 'semantic-ui-react';
+import ReactDOM from 'react-dom';
 
-class NestedModal extends React.Component {
-  state = { open: false }
+const modalRoot = document.getElementById("upload");
 
-  open = () => this.setState({ open: true })
-  close = () => this.setState({ open: false })
-
+class UploadModal extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  
   render() {
-    const { open } = this.state
-
-    return (
-      <Modal
-        open={open}
-        onOpen={this.open}
-        onClose={this.close}
-        size='small'
-        trigger={
-          <Button primary icon>
-            Proceed <Icon name='right chevron' />
-          </Button>
-        }
+    return ReactDOM.createPortal(
+      <div
+        style={{
+          position: "absolute",
+          top: "0",
+          bottom: "0",
+          left: "0",
+          right: "0",
+          display: "grid",
+          zIndex: "990",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "rgba(0,0,0,0.3)",
+        }}
       >
-        <Modal.Header>Modal #2</Modal.Header>
-        <Modal.Content>
-          <p>That's everything!</p>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button icon='check' content='All Done' onClick={this.close} />
-        </Modal.Actions>
-      </Modal>
-    )
+        <div
+          style={{
+            padding: 20,
+            background: "#fff",
+            borderRadius: "2px",
+            display: "inline-block",
+            minHeight: "250px",
+            margin: "1rem",
+            position: "relative",
+            minWidth: "300px",
+            boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
+            justifySelf: "center",
+            zIndex: "999"
+          }}
+        >
+          {this.props.children}
+          <div id='modalHeadUpload'>
+              <div id='modalTitleUpload'>Add A Photo</div>
+              <div id='modalCloseUpload' onClick={this.props.closeUpload}> &times; </div>
+          </div>
+          <hr/>
+          <form>
+            <br/>
+            <textarea rows="2" cols="70" id='photoURL' placeholder="Please enter photo URL" />
+            <br/>
+            <br/>
+            <textarea rows="5" cols="70" id='photoComment' placeholder="Say Something about this photo..." />
+            <br/><br/>
+          </form> 
+
+          <div id='photoAction'>
+            <button id='postPhoto' onClick={e=>this.props.upload()}>Post Photo</button>
+            <button id='cancelPhoto' onClick={this.props.closeUpload}>Cancel</button>
+          </div>
+
+        </div>
+      </div>,
+      modalRoot
+    );
+  
   }
 }
 
-const ModalExampleMultiple = () => (
-  <Modal trigger={<Button>Multiple Modals</Button>}>
-    <Modal.Header>Modal #1</Modal.Header>
-    <Modal.Content image>
-      <div className='image'>
-        <Icon name='right arrow' />
-      </div>
-      <Modal.Description>
-        <p>We have more to share with you. Follow us along to modal 2</p>
-      </Modal.Description>
-    </Modal.Content>
-    <Modal.Actions>
-      <NestedModal />
-    </Modal.Actions>
-  </Modal>
-)
-
-export default ModalExampleMultiple
+export default UploadModal;

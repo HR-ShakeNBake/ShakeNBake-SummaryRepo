@@ -1,9 +1,7 @@
 import React from 'react';
-import PhotoGalleryItem from './PhotoGalleryItem.jsx';
-import PhotoGalleryList from './PhotoGalleryList.jsx';
 import Stars from './Stars.jsx';
 
-const Summary = ({reviews, summary}) => {
+const Summary = ({reviews, summary, openModal, closeModal, showModal}) => {
   let made = summary.made;
   let stars;
   if (made > 1000) {
@@ -20,25 +18,39 @@ const Summary = ({reviews, summary}) => {
 
   return (
     <div id='summary' height="360" width="600">
-      <div id='summaryUser'>
-        <div id='summaryAvatar'>
-          <img src={summary.avatarURL} height="50" width="50" />
-        </div>
-        <div id='summaryFollowers'>
-          <img src='./followers.png' height="15" width="15" /> {summary.followers}
-        </div>
-      </div>
       <div>
-        <h2 id='summaryName'>{summary.recipeName}</h2>
+        <div id='summaryName'>{summary.recipeName}</div>
         <Stars stars={summary.avgRating} /> 
         <div id='summaryStats'>
-          <span> {made} made it | </span>
-          <span> {review} reviews | </span>
-          <span> {photos} photos </span>
+          <span id='stats'> {made} made it  </span>
+          <span id='divider'> | </span>
+          <span id='stats'> {review} reviews  </span>
+          <span id='divider'> | </span>
+          <span id='stats' onClick={e=>openModal(e)} > {photos} photos </span>
         </div>
-        <div id='summaryOwner'> Recipe by: {summary.username}</div>
-        <div id='summaryDescription' > " {summary.recipeDescription} "</div>
       </div>
+
+      <div id='summaryUser'>
+        <div id='sumLeft'>
+          <div id='summaryAv'>
+            <img src={summary.avatarURL} height="36" width="36" id='summaryAvatar' />
+          </div>
+          <div id='summaryFollowers'>
+            <span id='sumFollower'>
+              <img src='./followers.png' height="20" width="20" />
+            </span> 
+            <span id='sumFollowers'>{summary.followers}</span>
+          </div>
+        </div>
+        <div id='summaryText'>
+          <div id='summaryOwner'> 
+            <span id='recipeBy'>Recipe by:</span> 
+            <span id='sumUser'>{summary.username}</span>
+          </div>
+          <div id='summaryDescription' > " {summary.recipeDescription} "</div>
+        </div>
+      </div>
+
     </div>
   );
 }

@@ -1,0 +1,346 @@
+
+body {
+  font-family: "Source Sans Pro",Arial;
+}
+
+#main {
+  display: flex;
+}
+
+#summaryName {
+  font-size: 1.375rem;
+  line-height: 28px;
+  margin: 24px 0 8px;
+  text-align: center;
+}
+
+#star {
+  padding: 1px;
+}
+
+#summaryStars {
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+#summaryStats {
+  text-align: center;
+  cursor: pointer;
+}
+
+#stats {
+  color: #ff7e1a;
+}
+
+#divider {
+  color: #b3b3b3;
+}
+
+#summaryAvatar {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-bottom: 7px;
+  margin-top: 10px;
+}
+
+#summaryFollowers {
+  display: flex;
+  align-items: center;
+  margin-top: -3px;
+} 
+
+#sumLeft {
+  margin-right: 10px;
+}
+
+#summaryUser {
+  display: flex;
+}
+
+#summaryOwner {
+  margin-top: 10px;
+  margin-bottom: 10px;
+} 
+
+#recipeBy {
+  color: gray;
+  display: inline-block;
+  float: left;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem; 
+}
+
+#sumUser {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+#summaryDescription {
+  width: 350px;
+}  
+
+#sumFollowers {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+#sumFolPic {
+  width: 20px;
+  margin-left: 100px;
+  padding: 100px;
+}
+
+#summaryText {
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+#listText {
+  display: table; 
+  text-align: center;
+  font-size: 16px;
+  font-style: bold;
+  background-color: #b3b3b3;
+  color: white;
+  width: 91.7px;
+  height: 52px;
+}
+
+#listTextchild {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#gallery {
+  cursor: pointer;
+}
+
+#galleryList {
+  display: flex;
+}
+
+#modalHead {
+  display: flex;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 999;
+  margin-bottom: 5px;
+}
+
+#modalTitle {  
+  color: #fff;
+  font-size: 25px;
+  float: left;
+  font-style: normal;
+  font-style: initial;
+  z-index: 999;
+  margin-top: 10px;
+}
+
+#modalClose {
+  font-size: 40px;
+  font-style: bold;
+  color: white;
+  margin-left: 480px;
+  z-index: 999;
+  margin-top: 0px;
+}
+
+#modalImage {
+  padding: 2px;
+}
+
+#modalTitle {
+  display: flex;
+  justify-content: flex-end
+}
+
+#modalAvatar {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+#modalUser {
+  color: black;
+  margin-top: 15px;
+  font-size: 15px;
+  width: 100px;
+}
+
+#modalFollow {
+  margin-right: 0px;
+  margin-left: 480px;
+}
+
+#modalGallery {
+  height: 400px;
+  width: 100%;
+  transition: transform ease-out 0.45s;
+}
+
+#modalCommentTitle {
+  font-size: 18px;
+  margin: 10px 0px 5px 10px;
+}
+
+#modalComment {
+  font-size: 15px;
+  font-style: italic;
+  margin: 5px 0px 5px 10px;
+}
+
+#modalNav {
+  text-align: center;
+}
+
+#modalPrev, #modalNext {
+  border-radius: 15px;
+  padding: 10px;
+}
+
+#nextArrow{
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  z-index: 999;
+  color: white;
+  font-size: 40px;
+}
+
+#prevArrow {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  z-index: 999;
+  color: white;
+  font-size: 40px;
+}
+
+#nextArrowBar{
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  width: 27px;
+  top: 14%;
+  right: 20px;
+  z-index: 999;
+  color: white;
+  background: black;
+  opacity:0;
+  font-size: 25px;
+  cursor: pointer;
+  /* display: none; */
+}
+
+#prevArrowBar {
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  width: 27px;
+  top: 14%;
+  left: 20px;
+  z-index: 999;
+  color: white;
+  background: black;
+  opacity:0;
+  font-size: 25px;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.barNav #nextArrowBar:hover, #prevArrowBar:hover {
+  opacity:0.7
+}
+
+#listTextchild {
+  position: absolute;
+  top: 322px;
+  left: 885.4px;
+  color:white;
+  opacity: .7;
+  z-index: 100;
+  width: 91.7px;
+  height: 51.7px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#listTextchildBox {
+  position: absolute;
+  top: 322px;
+  left: 885.4px;
+  background: black;
+  opacity: .6;
+  z-index: 99;
+  width: 91.7px;
+  height: 51.7px;
+}
+
+#listUpload {
+  position: absolute;
+  top: 322px;
+  left: 427px;
+  opacity: .9;
+  z-index: 99;
+  width: 91.7px;
+  height: 51.7px;
+}
+
+#modalTitleImage {
+  position: absolute;
+  top: -300px;
+  left: 312.5px;
+  opacity: .7;
+  z-index: 99;
+  clip: rect(300px, 1200px, 350px, 0px);
+  width: 799px;
+  display: none;
+}
+
+#modalHeadUpload {
+  display: flex;
+  z-index: 999;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 1.375rem
+}
+
+#modalTitleUpload {  
+  float: left;
+  font-style: normal;
+  z-index: 999;
+  margin-top: 10px;
+}
+
+#modalCloseUpload {
+  font-size: 30px;
+  font-style: bold;
+  margin-left: 300px;
+  z-index: 999;
+  margin-top: 0px;
+}
+
+#photoAction{
+  /* display: flex; */
+  text-align: center;
+}
+
+#postPhoto{
+  width: 200px;
+  height: 60px;
+  background: #feaa26;
+  color: white;
+  border-radius: 5px;
+}
+
+#cancelPhoto{
+  width: 200px;
+  height: 60px;
+  background: #b3b3b3;
+  color: white;
+  border-radius: 5px;
+}

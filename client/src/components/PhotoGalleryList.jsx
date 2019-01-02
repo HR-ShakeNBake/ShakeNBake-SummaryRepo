@@ -1,21 +1,26 @@
 import React from 'react';
-import GalleryModal from './GalleryModal.jsx';
+import UploadModal from './UploadModal.jsx';
 
-const PhotoGalleryList = ({photos, upload, openModal, closeModal, showModal}) => {
+
+const PhotoGalleryList = ({photos, upload, openModal, openUpload, closeUpload, showUpload}) => {
+  console.log(upload, 'from list')
   if (photos.length) {
     return (
       <div id='galleryList'>
-        <img src='./upload.png' height="52" width="92" onClick={e => upload()}/>
-        <img src={photos[0].photoURL} height="51.7" width="91.7" onClick={e => openModal(e)}/>
-        <img src={photos[1].photoURL} height="51.7" width="91.7" onClick={e => openModal(e)}/>
-        <img src={photos[2].photoURL} height="51.7" width="91.7" onClick={e => openModal(e)}/>
-        <img src={photos[3].photoURL} height="51.7" width="91.7" onClick={e => openModal(e)}/>
-        <img src={photos[4].photoURL} height="51.7" width="91.7" onClick={e => openModal(e)}/>
-        <h2 class="centered" onClick={e => openModal()}> + {photos.length} </h2>
-        {showModal ? (
-          <GalleryModal onClose={closeModal}>
-            This is the secret modal message!
-          </GalleryModal>
+        <div><img src={photos[0].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
+        <div><img src={photos[0].photoURL} alt='0' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
+        <div><img src={photos[1].photoURL} alt='1' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
+        <div><img src={photos[2].photoURL} alt='2' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
+        <div><img src={photos[3].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div>
+        <div><img src={photos[4].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div> 
+        <div id='listTextchildBox'></div> 
+        <div id='listTextchild'>+{photos.length}</div> 
+        <img id='listUpload' src='./upload.png' height="51.7" width="91.7" onClick={e => openUpload(e)}/>
+
+        {showUpload ? (
+          <UploadModal openUpload={openUpload} closeUpload={closeUpload} 
+            showUpload={showUpload} upload={upload} >  
+          </UploadModal>
           ) : null}
       </div>
     );
