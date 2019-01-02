@@ -2,7 +2,7 @@ const faker = require('faker');
 const db = require('../database');
 const moment = require('moment');
 
-random recipe name generator
+// random recipe name generator
 
 const randomInArray = (array) => {
   return array[Math.floor(Math.random()*array.length)];
