@@ -218,7 +218,7 @@ body {
 
 #prevArrow {
   position: absolute;
-  top: 50%;xg
+  top: 50%;
   left: -40px;
   z-index: 999;
   color: white;
@@ -231,7 +231,7 @@ body {
   text-align: center;
   border-radius: 50%;
   width: 27px;
-  top: 13a%;
+  top: 13%;
   right: 20px;
   z-index: 999;
   color: white;
@@ -239,7 +239,6 @@ body {
   opacity:0;
   font-size: 25px;
   cursor: pointer;
-  /* display: none; */
 }
 
 #prevArrowBar {
@@ -255,7 +254,6 @@ body {
   opacity:0;
   font-size: 25px;
   cursor: pointer;
-  /* display: none; */
 }
 
 .barNav #nextArrowBar:hover, #prevArrowBar:hover {
