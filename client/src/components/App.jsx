@@ -96,11 +96,12 @@ class App extends React.Component {
   }
 
   getData() {
-    fetch('/recipe', {
+    fetch('http://localhost:4000/recipe', {
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
     })
     .then((result) => {
+      console.log(result);
       return result.json();
     })
     .then(data => {
