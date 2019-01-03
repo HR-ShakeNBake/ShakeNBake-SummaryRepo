@@ -14,7 +14,7 @@ const PhotoGalleryList = ({photos, upload, openModal, openUpload, closeUpload, s
         <div><img src={photos[4].photoURL} alt='3' height="51.7" width="91.7" onClick={e => openModal(e)}/></div> 
         <div id='listTextchildBox'></div> 
         <div id='listTextchild' onClick={e => openModal(e)}>+{photos.length}</div> 
-        <img id='listUpload' src='./upload.png' height="51.7" width="91.7" onClick={e => openUpload(e)}/>
+        <img id='listUpload' src='http://localhost:4000/upload.png' height="51.7" width="91.7" onClick={e => openUpload(e)}/>
 
         {showUpload ? (
           <UploadModal openUpload={openUpload} closeUpload={closeUpload} 

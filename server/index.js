@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database')
+const cors = require('cors')
 
 const app = express();
 const PORT = 4000;
+
+app.use(cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -60,7 +63,7 @@ app.get('/recipe', (req, res) => {
   })
 });
 
-app.post('/recipe', (req, res) => {
+app.post('http://localhost:4000/recipe', (req, res) => {
   console.log('serving post request');
   var sql = 'INSERT INTO photos (photoURL, userId, recipeId, comment) VALUES (?, ?, ?, ?);'
   var photo = req.body;

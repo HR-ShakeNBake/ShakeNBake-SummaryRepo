@@ -37,7 +37,7 @@ const Summary = ({reviews, summary, openModal, closeModal, showModal}) => {
           </div>
           <div id='summaryFollowers'>
             <span id='sumFollower'>
-              <img src='./followers.png' height="20" width="20" />
+              <img src='http://localhost:4000/followers.png' height="20" width="20" />
             </span> 
             <span id='sumFollowers'>{summary.followers}</span>
           </div>

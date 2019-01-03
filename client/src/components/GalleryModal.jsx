@@ -48,7 +48,7 @@ class GalleryModal extends React.Component {
             </div>
             
             <div>
-              <img id='modalImage' src='./upload.png' height="80" width="80" onClick={e => this.props.openUpload()}/>
+              <img id='modalImage' src='http://localhost:4000/upload.png' height="80" width="80" onClick={e => this.props.openUpload()}/>
               <img id='modalImage' src={this.props.photos[0].photoURL} alt='0' onClick={e => this.props.changeIndex(e)} height="80" width="80" />
               <img id='modalImage' src={this.props.photos[1].photoURL} alt='1' onClick={e=>this.props.changeIndex(e)} height="80" width="80" />
               <img id='modalImage' src={this.props.photos[2].photoURL} alt='2' onClick={e=>this.props.changeIndex(e)} height="80" width="80" />
@@ -70,8 +70,8 @@ class GalleryModal extends React.Component {
 
               <div id='modalFollow'>
                 {this.props.following ? (
-                  <img src='./following.png' onClick={e => this.props.unfollow()} height="45" width="120"/>
-                ) : <img src='./follow.png' onClick={e => this.props.follow()} height="45" width="120"/>}
+                  <img src='http://localhost:4000/following.png' onClick={e => this.props.unfollow()} height="45" width="120"/>
+                ) : <img src='http://localhost:4000/follow.png' onClick={e => this.props.follow()} height="45" width="120"/>}
               </div>
             </div>
 
@@ -82,9 +82,9 @@ class GalleryModal extends React.Component {
               <div id='modalComment'>{this.props.photos[this.props.index].comment}</div>
             <div id='modalNav'>
               {this.props.index > 0 ? (
-                <img id='modalPrev' src='./previous.png' onClick={e => this.props.previous()} height="50" width="120"/>
+                <img id='modalPrev' src='http://localhost:4000/previous.png' onClick={e => this.props.previous()} height="50" width="120"/>
                 ) : null}
-              <img id='modalNext' src='./next.png' onClick={e => this.props.next()} height="50" width="120"/>
+              <img id='modalNext' src='http://localhost:4000/next.png' onClick={e => this.props.next()} height="50" width="120"/>
             </div>
 
             <div>
