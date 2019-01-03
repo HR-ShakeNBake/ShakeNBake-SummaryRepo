@@ -101,7 +101,6 @@ class App extends React.Component {
       headers: {'Content-Type': 'application/json'},
     })
     .then((result) => {
-      console.log(result);
       return result.json();
     })
     .then(data => {
@@ -110,7 +109,6 @@ class App extends React.Component {
         reviews: data.reviews,
         summary: data.summary[0]
       });
-      console.log(this.state)
     })
     .catch((err) => {
       console.log(err);
@@ -118,8 +116,6 @@ class App extends React.Component {
   }
 
   upload() {
-    // console.log(document.getElementById("photoURL").value)
-    // // console.log(document.getElementById("photoComment"))
     var url = document.getElementById("photoURL").value;
     var comment = document.getElementById("photoComment").value;
     var photo = {};
