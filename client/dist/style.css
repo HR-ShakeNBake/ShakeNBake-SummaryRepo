@@ -193,6 +193,7 @@ body {
 #modalComment {
   font-size: 15px;
   font-style: italic;
+  width: 700px;
   margin: 5px 0px 5px 10px;
 }
 
