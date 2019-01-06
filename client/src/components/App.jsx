@@ -96,7 +96,7 @@ class App extends React.Component {
   }
 
   getData() {
-    fetch('http://localhost:4000/recipe', {
+    fetch('http://3.17.144.156/recipe', {
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
     })
@@ -124,7 +124,7 @@ class App extends React.Component {
     photo.recipeId = 1;
     photo.userId = 1;
     this.closeUploadModal();
-    fetch('/recipe', {
+    fetch('http://3.17.144.156/recipe', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(photo)
