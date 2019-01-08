@@ -9,8 +9,9 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "schema": "mysql -u root -p < ./schema.sql",
-    "seed": "nodemon ./database/data.js"
+    "schema": "mysql -u root -p < database/schema.sql",
+    "seed": "node database/data.js",
+    "start": "node database/data.js & node server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
